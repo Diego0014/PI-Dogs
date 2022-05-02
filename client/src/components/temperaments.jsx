@@ -9,7 +9,7 @@ export default function Dogs() {
   useEffect(() => {
     dispatch(fetchDogs());
   }, []);
-
+  console.log(dogs);
   return (
     <div>
       {dogs.map((eachDog) => {
@@ -19,7 +19,6 @@ export default function Dogs() {
             name={eachDog.name}
             image={eachDog.image}
             weight={eachDog.weight}
-            temperament={eachDog.temperament}
           />
         );
       })}
