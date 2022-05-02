@@ -3,12 +3,20 @@ const { Temperament } = require("../db");
 
 const router = Router();
 
-router.get("/", (req, res, next) => {
+/* router.get("/", (req, res, next) => {
   return Temperament.findAll()
-    .then((temperaments) => res.status(200).json(temperaments))
+    .then((temperaments) => res.status(200).send(temperaments))
     .catch((err) =>next(err));
-});
+}); */
 
+router.get("/", async (req, res, next) => {
+  try{
+      const db = await Temperament.findAll()
+      return res.json(db).status(200)
+  } catch (e) {
+      return res.json(e.message).status(409)
+  }
+})
 
 router.post("/", async (req, res, next) => {
   try {
