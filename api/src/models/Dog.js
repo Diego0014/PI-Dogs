@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
   sequelize.define("dog",{ 
     name: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     id: {
       type: DataTypes.UUID,

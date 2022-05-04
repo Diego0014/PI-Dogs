@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Dog } = require("../db");
+const { Dog } = require("../../db");
 
 
 const router = Router();

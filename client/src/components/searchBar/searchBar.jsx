@@ -1,29 +1,25 @@
 import { useState } from "react";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { getDogByName } from "../../store/actions";
 
-export default function SearchBar({ onSearch }) {
-  const [search, setSearch] = useState("");
-  /* function onSubmit(e){
+
+export default function SearchBar() {
+  const [search, setSearch] = useState('');
+  let dispatch = useDispatch()
+  function onSubmit(e){
       e.preventDefault();
-      axios.post('')
+      dispatch(getDogByName(search))
     }
     function onInputChange(e){
+      e.preventDefault();
       setSearch(e.target.value);
-    } */
-  return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        onSearch(search);
-      }}
-    >
-      <input
-        type="text"
-        placeholder="Name"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <input type="submit" value="Search" />
-    </form>
-  );
+    }
+  return(
+    <div>
+      <form onSubmit={onSubmit}>
+        <input type="text" onChange={onInputChange} value={search} />
+        <input type="submit" value="Search" />
+      </form>
+    </div>
+      )
 }

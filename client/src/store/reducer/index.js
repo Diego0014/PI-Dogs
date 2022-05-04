@@ -1,5 +1,4 @@
-import { FETCH_DOGS } from "../actions";
-import { FETCH_TEMPERAMENTS } from "../actions";
+import { FETCH_DOGS, GET_DOG_BY_NAME } from "../actions";
 
 const initialState = {
   dogs: [],
@@ -13,7 +12,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         dogs: action.payload,
       };
-    case FETCH_TEMPERAMENTS:
+    case GET_DOG_BY_NAME:
       return {
         ...state,
         temperaments: action.payload,

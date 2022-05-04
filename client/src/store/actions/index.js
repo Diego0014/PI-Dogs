@@ -22,37 +22,20 @@ export function fetchDogs() {
   };
 }
 
-export function fetchTemperaments() {
+
+
+export function getDogByName(name) {
   return function (dispatch) {
-    return axios.get("http://localhost:3001/temperament").then((response) => {
-      dispatch({ type: GET_TEMPERAMENTS, payload: response.data });
-    });
+    axios
+      .get(`http://localhost:3001/api/dogs?name=${name}`)
+      .then((allDogs) => {
+        dispatch({
+          type: GET_DOG_BY_NAME,
+          payload: allDogs.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
-}
-
-export function getDogByName(dispatch) {
-  axios.get(`http://localhost:3001/api/dogs`).then((dog) => {
-    dispatch({
-      type: GET_DOG_BY_NAME,
-      payload: dog,
-    });
-  });
-}
-
-export function getDogById(dispatch) {
-  axios.get(`http://localhost:3001/api/dogs`).then((dog) => {
-    dispatch({
-      type: GET_DOG_BY_ID,
-      payload: dog,
-    });
-  });
-}
-
-export function getTemperaments(dispatch) {
-  axios.get(`http://localhost:3001/api/temperaments`).then((dog) => {
-    dispatch({
-      type: GET_TEMPERAMENTS,
-      payload: dog,
-    });
-  });
 }
