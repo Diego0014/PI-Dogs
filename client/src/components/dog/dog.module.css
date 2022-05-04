@@ -1,0 +1,16 @@
+.imgDogs{
+    border-radius:5px;
+    width: 20vw;
+}
+
+.divOrder{
+    float:left;
+    background-color: red;
+    overflow: hidden;
+}
+
+.dataOrder{
+    float:left;
+    background-color: red;
+    overflow: hidden;
+}
