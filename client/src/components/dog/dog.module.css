@@ -5,6 +5,7 @@
   margin:20px;
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 15px;
+  backdrop-filter: blur(5px);
 }
 .imgContainer {
   margin: 15px;

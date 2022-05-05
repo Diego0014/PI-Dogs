@@ -13,7 +13,9 @@ export default function Dog({ name, image, weight, temperament }) {
       <div className={style.dataOrder}>
         <h3>{name}</h3>
         <p>Weight</p>
-        <p>Min: {min} Max: {max}</p>
+        <p>
+          Min: {min} Max: {max}
+        </p>
         <p>{temperament}</p>
         <button className={style.btnMore}>See more</button>
       </div>

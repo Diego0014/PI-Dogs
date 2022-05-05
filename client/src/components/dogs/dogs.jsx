@@ -4,7 +4,7 @@ import { fetchDogs } from "../../store/actions";
 import Dog from "../dog/dog";
 
 export default function Dogs() {
-  let dogs = useSelector((state) => state.dogs);
+  let dogs = useSelector((state) => state.filteredDogs);
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchDogs());

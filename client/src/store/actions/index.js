@@ -5,6 +5,7 @@ export const FETCH_TEMPERAMENTS = "FETCH_TEMPERAMENTS";
 export const GET_DOG_BY_NAME = "GET_DOG_BY_NAME";
 export const GET_DOG_BY_ID = "GET_DOG_BY_ID";
 export const GET_TEMPERAMENTS = "GET_TEMPERAMENTS";
+export const SORT = "SORT";
 
 export function fetchDogs() {
   return function (dispatch) {
@@ -22,12 +23,10 @@ export function fetchDogs() {
   };
 }
 
-
-
-export function getDogByName(name) {
+export function getDogByName(search) {
   return function (dispatch) {
     axios
-      .get(`http://localhost:3001/api/dogs?name=${name}`)
+      .get(`http://localhost:3001/api/dogs?name=${search}`)
       .then((allDogs) => {
         dispatch({
           type: GET_DOG_BY_NAME,
@@ -37,5 +36,12 @@ export function getDogByName(name) {
       .catch((error) => {
         console.log(error);
       });
+  };
+}
+
+export function sort(order) {
+  return {
+    type: SORT,
+    payload: order,
   };
 }
