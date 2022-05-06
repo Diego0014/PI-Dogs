@@ -1,17 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import style from "../getDogDetail/dogDetail.module.css";
 
-export default function DogDetail({ name, image, weight, temperament }) {
+export default function DogDetail() {
+  const [dog, setDog] = useState(null);
+  let { id } = useParams();
+  useEffect(() => {
+    axios.get(`http://localhost:3001/api/dogs/${id}`).then((response) => {
+      setDog(response.data);
+    });
+    return () => {
+      setDog(null);
+    };
+  }, []);
+
   return (
     <div className={style.divOrder}>
-      <div className={style.imgContainer}>
-        <img className={style.imgDogs} src={image} alt="" value={name} />
-      </div>
-
-      <div className={style.dataOrder}>
-        <h3>{name}</h3>
-        <p>Metric: {weight}</p>
-        <p>{temperament}</p>
-      </div>
+      {dog ? (
+        <>
+          <div className={style.imgContainer}>
+            <img
+              className={style.imgDogs}
+              src={dog.image}
+              alt=""
+              value={dog.name}
+            />
+          </div>
+          <div className={style.dataOrder}>
+            <h3>{dog.name}</h3>
+            <p>Metric: {dog.weight}</p>
+            <p>{dog.temperament}</p>
+          </div>
+        </>
+      ) : (
+        <div>loading...</div>
+      )}
     </div>
   );
 }

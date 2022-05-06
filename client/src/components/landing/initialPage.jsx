@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import style from "../landing/initialPage.module.css";
 
 export default function Index() {
@@ -8,9 +9,11 @@ export default function Index() {
         <div className={style.typedOut}>To my individual project!</div>
       </div>
       <div className={style.enterBtnDiv}>
+        <Link to= '/home'>
         <button className={style.enterBtn}>
-          <a href="#">Shut up! I want to see dogs!</a>
+          Shut up! I want to see dogs!
         </button>
+        </Link>
       </div>
     </div>
   );

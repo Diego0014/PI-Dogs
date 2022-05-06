@@ -1,5 +1,5 @@
 import { FETCH_DOGS, GET_DOG_BY_NAME, SORT } from "../actions";
-
+import {ASCEND} from "../../constants/order";
 const initialState = {
   dogs: [],
   filteredDogs: [],

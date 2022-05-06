@@ -22,11 +22,11 @@
 .dataOrder {
   flex: 50%;
   border-radius: 10px;
-  border: 2px solid #4caf4f7f;
+  border: 2px solid #3e0c897f;
   margin: 10px;
 }
 .btnMore {
-    background-color: #4CAF50; 
+    background-color: #7f4caf; 
     border: none;
     border-radius: 10px;
     color: white;

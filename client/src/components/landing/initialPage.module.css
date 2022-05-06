@@ -19,19 +19,20 @@ body {
   margin-top: 85vh;
 }
 .enterBtn:hover {
+  cursor: pointer;
   border: none;
   border-radius: 3px;
   background-color: gold;
   font-size: large;
 }
-a {
+/* a {
   padding: 0.5em;
   margin: 0.5em;
   font-size: 1.5em;
   font-style: bold;
   text-decoration: none;
   color: black;
-}
+} */
 
 .containerT {
   float: left;

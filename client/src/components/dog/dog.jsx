@@ -1,7 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import style from "../dog/dog.module.css";
 
-export default function Dog({ name, image, weight, temperament }) {
+export default function Dog({
+  id,
+  bred_for,
+  breed_group,
+  life_span,
+  origin,
+  name,
+  image,
+  weight,
+  temperament,
+}) {
   let getMinMax = weight.split("-");
   let min = getMinMax[0];
   let max = getMinMax[1];
@@ -17,7 +28,9 @@ export default function Dog({ name, image, weight, temperament }) {
           Min: {min} Max: {max}
         </p>
         <p>{temperament}</p>
-        <button className={style.btnMore}>See more</button>
+        <Link to={`/home/${id}`}>
+          <button className={style.btnMore}  >See more</button>
+        </Link>
       </div>
     </div>
   );
