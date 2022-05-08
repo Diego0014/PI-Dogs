@@ -1,5 +1,5 @@
 import { FETCH_DOGS, GET_DOG_BY_NAME, SORT } from "../actions";
-import {ASCEND} from "../../constants/order";
+import {ASCEND, DESCEND, WASCEND, WDESCEND} from "../../constants/order";
 const initialState = {
   dogs: [],
   filteredDogs: [],
@@ -23,7 +23,9 @@ export default function reducer(state = initialState, action) {
       let orderedDogs = [...state.dogs];
       orderedDogs = orderedDogs.sort((a, b) => {
         if (a.name < b.name) return action.payload === ASCEND ? -1 : 1;
-        else if (a.name > b.name) return action.payload === ASCEND ? 1 : -1;
+        else if (a.name > b.name) return action.payload === DESCEND ? 1 : -1;
+        else if (a.weight.split('-')[1] < b.weight.split('-')[1]) return action.payload === WASCEND ? -1 : 1;
+        else if (a.weight.split('-')[1] > b.weight.split('-')[1]) return action.payload ===  WDESCEND ? 1 : -1;
         else return 0;
       });
       return {
