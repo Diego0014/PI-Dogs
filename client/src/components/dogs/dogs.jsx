@@ -13,7 +13,9 @@ export default function Dogs() {
   const maxPage = Math.ceil(dogs.length / perPage);
   useEffect(() => {
     dispatch(fetchDogs());
-  }, []);
+  },
+  // eslint-disable-next-line 
+  []);
 
 
   return (

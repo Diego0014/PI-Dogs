@@ -14,7 +14,9 @@ export default function DogDetail() {
     return () => {
       setDog(null);
     };
-  }, []);
+  }, 
+  // eslint-disable-next-line 
+  []);
   
   return (
     <div>

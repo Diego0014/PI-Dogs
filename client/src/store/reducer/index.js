@@ -1,4 +1,4 @@
-import { FETCH_DOGS, GET_DOG_BY_NAME, SORT } from "../actions";
+import { FETCH_DOGS, GET_DOG_BY_NAME, GET_TEMPERAMENTS, SORT } from "../actions";
 import {ASCEND, DESCEND, WASCEND, WDESCEND} from "../../constants/order";
 const initialState = {
   dogs: [],
@@ -31,6 +31,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         filteredDogs: orderedDogs,
+      };
+      case GET_TEMPERAMENTS:
+      return {
+        ...state,
+        temperaments: action.payload,
       };
     default:
       return state;

@@ -15,7 +15,7 @@ export function CreateDog() {
   function onSubmit(e) {
     e.preventDefault();
     axios.post("http://localhost:3001/api/dogs", dog).then(() => {
-      history.push("/");
+      history.push("/dogs");
     });
   }
   return (
@@ -43,8 +43,7 @@ export function CreateDog() {
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import style from "./CreateDog.module.css";
-import { getTemperaments } from "../../store/actions/index";
+import  {getTemperaments}  from "../../store/actions/index";
 import { useDispatch, useSelector } from "react-redux";
 
 export function validate(input) {
@@ -91,8 +90,8 @@ export default function CreateDog() {
     []
   );
 
-  const tempss = useSelector((state) => state.allTemps);
-
+  const tempss = useSelector((state) => state.temperaments);
+    
   const handleInputChange = function (e) {
     setInput({
       ...input,
@@ -103,7 +102,6 @@ export default function CreateDog() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(input);
     if (!errors.name && !errors.weight && !errors.height && !errors.life_span) {
       alert("Your breed has been created successfully");
       axios.post("http://localhost:3001/dog", input).then(
@@ -145,15 +143,15 @@ export default function CreateDog() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className={style.background}>
+      <div >
         <ul>
-          <div className={style.label}>
+          <div >
             <li>
               <label>Name:</label>
             </li>
           </div>
           <input
-            className={style.input}
+            
             key="name"
             type="text"
             name="name"
@@ -161,15 +159,15 @@ export default function CreateDog() {
             onChange={handleInputChange}
             value={input.name}
           />
-          {errors.name && <p className={style.danger}>{errors.name}</p>}
+          {errors.name && <p >{errors.name}</p>}
           <br />
-          <div className={style.label}>
+          <div >
             <li>
               <label>Height:</label>
             </li>
           </div>
           <input
-            className={style.input}
+            
             key="height"
             type="text"
             name="height"
@@ -177,15 +175,15 @@ export default function CreateDog() {
             onChange={handleInputChange}
             value={input.height}
           />
-          {errors.height && <p className={style.danger}>{errors.height}</p>}
+          {errors.height && <p >{errors.height}</p>}
           <br />
-          <div className={style.label}>
+          <div >
             <li>
               <label>Weight:</label>
             </li>
           </div>
           <input
-            className={style.input}
+            
             key="weight"
             type="text"
             name="weight"
@@ -193,15 +191,15 @@ export default function CreateDog() {
             onChange={handleInputChange}
             value={input.weight}
           />
-          {errors.weight && <p className={style.danger}>{errors.weight}</p>}
+          {errors.weight && <p >{errors.weight}</p>}
           <br />
-          <div className={style.label}>
+          <div >
             <li>
               <label>Life Span:</label>
             </li>
           </div>
           <input
-            className={style.input}
+            
             key="life_span"
             type="text"
             name="life_span"
@@ -210,16 +208,16 @@ export default function CreateDog() {
             value={input.life_span}
           />
           {errors.life_span && (
-            <p className={style.danger}>{errors.life_span}</p>
+            <p >{errors.life_span}</p>
           )}
           <br />
-          <div className={style.label}>
+          <div >
             <li>
               <label>Temperaments:</label>
             </li>
           </div>
           <select
-            className={style.select}
+            
             key="temperaments"
             name="temperaments"
             onChange={(e) => handleSelect(e)}
@@ -233,14 +231,14 @@ export default function CreateDog() {
             ))}
           </select>
           {errors.temperaments && (
-            <p className={style.danger}>{errors.temperaments}</p>
+            <p >{errors.temperaments}</p>
           )}
           <br />
           {input.temperaments.map((e) => (
             <p id={e}>{tempsNames([e])}</p>
           ))}
           <button
-            className={style.button}
+            
             type="submit"
             name="submit"
             onClick={handleSubmit}
